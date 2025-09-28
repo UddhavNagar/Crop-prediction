@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import farmBg from '../assets/farm.jpg';
 import { 
   MapPin, 
   Droplets, 
@@ -257,8 +258,19 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen gradient-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div
+      className="min-h-screen relative bg-cover bg-center"
+      style={{ backgroundImage: `url(${farmBg})` }}
+    >
+      {/* Overlay for readability */}
+      <motion.div
+        className="absolute inset-0 bg-black/40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      ></motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
